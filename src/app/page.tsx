@@ -1,69 +1,175 @@
 import Image from "next/image";
+import Navbar from "@/components/Navbar";
+
+const features = [
+  {
+    title: "Endless game feed",
+    description:
+      "Scroll through an indefinite stream of playable games — not photos or videos. Discover, play, and keep going.",
+  },
+  {
+    title: "Friends & requests",
+    description:
+      "Add friends, manage requests, and build a circle of players you actually want to compete with.",
+  },
+  {
+    title: "Chat",
+    description:
+      "Talk while you play. Message friends, share wins, and coordinate your next challenge.",
+  },
+  {
+    title: "Challenge friends",
+    description:
+      "Pick a game, send a challenge, and settle it head-to-head — social competition built in.",
+  },
+  {
+    title: "Leaderboards",
+    description:
+      "Climb the ranks on competitive games. See where you stand among friends and the wider community.",
+  },
+  {
+    title: "Game Engine Studio",
+    description:
+      "Coming later: create and publish your own games. More details will be shared as we roll it out.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <>
+      <Navbar />
+
+      <main>
+        <section
+          id="home"
+          className="hero-glow relative flex min-h-screen scroll-mt-16 flex-col items-center justify-center px-5 pt-20 pb-16 sm:px-8"
+        >
+          <div className="mx-auto flex w-full max-w-4xl flex-col items-center text-center">
             <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
+              src="/flynk-up-logo.png"
+              alt="Flynk Up"
+              width={120}
+              height={120}
+              className="mb-8 h-24 w-24 sm:h-28 sm:w-28"
+              priority
             />
-            Deploy Now
-          </a>
+            <p className="mb-4 text-sm font-medium tracking-[0.2em] text-muted uppercase">
+              Social gaming
+            </p>
+            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-foreground sm:text-6xl">
+              Play together.{" "}
+              <span className="brand-gradient-text">Scroll forever.</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              Flynk Up is a social network built around games — an endless feed
+              of playable experiences, with friends, chat, challenges, and
+              leaderboards at the center.
+            </p>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="#features"
+                className="brand-gradient-bg rounded-full px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-blue/25 transition hover:opacity-95"
+              >
+                Explore features
+              </a>
+              <a
+                href="#contact"
+                className="rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-foreground transition hover:border-brand-blue/40"
+              >
+                Get in touch
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="features"
+          className="scroll-mt-16 border-t border-border px-5 py-24 sm:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <div className="max-w-2xl">
+              <p className="text-sm font-medium tracking-[0.18em] text-brand-blue uppercase">
+                Features
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+                Everything social — built for games
+              </h2>
+              <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">
+                The same social rhythm you know, reimagined around playable
+                content instead of posts and clips.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {features.map((feature) => (
+                <article key={feature.title} className="border-t border-border pt-6">
+                  <h3 className="text-lg font-semibold tracking-tight">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+                    {feature.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="about"
+          className="scroll-mt-16 border-t border-border px-5 py-24 sm:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <p className="text-sm font-medium tracking-[0.18em] text-brand-violet uppercase">
+              About
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              About Flynk Up
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              Founder details will be shared here soon.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="contact"
+          className="scroll-mt-16 border-t border-border px-5 py-24 sm:px-8"
+        >
+          <div className="mx-auto max-w-6xl">
+            <p className="text-sm font-medium tracking-[0.18em] text-brand-indigo uppercase">
+              Contact
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+              Say hello
+            </h2>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+              Questions, ideas, or partnerships — reach us at{" "}
+              <a
+                href="mailto:flynkup@gmail.com"
+                className="font-medium text-brand-blue underline-offset-4 hover:underline"
+              >
+                flynkup@gmail.com
+              </a>
+              .
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="border-t border-border px-5 py-8 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+          <p className="text-sm text-muted">
+            © {new Date().getFullYear()} Flynk Up
+          </p>
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:flynkup@gmail.com"
+            className="text-sm text-muted transition hover:text-foreground"
           >
-            Documentation
+            flynkup@gmail.com
           </a>
         </div>
-      </main>
-    </div>
+      </footer>
+    </>
   );
 }

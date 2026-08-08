@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f7f8fc;
+  --foreground: #0f1220;
+  --muted: #5b6178;
+  --surface: #ffffff;
+  --surface-soft: #eef1f8;
+  --border: #d9deeb;
+  --brand-blue: #2060f0;
+  --brand-indigo: #5050f0;
+  --brand-violet: #9040f0;
+  --brand-gradient: linear-gradient(135deg, #2060f0 0%, #5050f0 48%, #9040f0 100%);
+  --nav-bg: rgba(247, 248, 252, 0.86);
+  --glow: rgba(32, 96, 240, 0.18);
+}
+
+.dark {
+  --background: #070910;
+  --foreground: #f2f4ff;
+  --muted: #9aa3c0;
+  --surface: #10131f;
+  --surface-soft: #161a2b;
+  --border: #262b40;
+  --brand-blue: #3d7bff;
+  --brand-indigo: #6b63ff;
+  --brand-violet: #b05cff;
+  --brand-gradient: linear-gradient(135deg, #3d7bff 0%, #6b63ff 48%, #b05cff 100%);
+  --nav-bg: rgba(7, 9, 16, 0.86);
+  --glow: rgba(61, 123, 255, 0.22);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+  --color-border: var(--border);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-indigo: var(--brand-indigo);
+  --color-brand-violet: var(--brand-violet);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+.brand-gradient-text {
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-gradient-bg {
+  background-image: var(--brand-gradient);
+}
+
+.hero-glow {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%, var(--glow), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 85% 20%, rgba(144, 64, 240, 0.12), transparent 55%);
 }
