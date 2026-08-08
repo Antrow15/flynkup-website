@@ -16,6 +16,10 @@ export const metadata: Metadata = {
   title: "Flynk Up",
   description:
     "Flynk Up — a social network for games. Endless playable feeds, friends, chat, challenges, and leaderboards.",
+  icons: {
+    icon: [{ url: "/flynk-up-logo.png", type: "image/png" }],
+    apple: [{ url: "/flynk-up-logo.png", type: "image/png" }],
+  },
 };
 
 const themeInitScript = `
