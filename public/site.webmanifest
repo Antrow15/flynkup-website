@@ -1,0 +1,27 @@
+{
+  "name": "Flynk Up",
+  "short_name": "Flynkup",
+  "description": "A social network for games — play, share, and discover in an endless feed.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0b0b",
+  "theme_color": "#e31c23",
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
