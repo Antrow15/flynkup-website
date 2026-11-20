@@ -3,33 +3,37 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #f7f8fc;
-  --foreground: #0f1220;
-  --muted: #5b6178;
+  --background: #f7f5f4;
+  --foreground: #212121;
+  --muted: #6b6664;
   --surface: #ffffff;
-  --surface-soft: #eef1f8;
-  --border: #d9deeb;
-  --brand-blue: #2060f0;
-  --brand-indigo: #5050f0;
-  --brand-violet: #9040f0;
-  --brand-gradient: linear-gradient(135deg, #2060f0 0%, #5050f0 48%, #9040f0 100%);
-  --nav-bg: rgba(247, 248, 252, 0.86);
-  --glow: rgba(32, 96, 240, 0.18);
+  --surface-soft: #efeae8;
+  --border: #ddd4d1;
+  --brand-red: #e31c23;
+  --brand-red-bright: #ff6464;
+  --brand-red-deep: #aa0000;
+  --brand-charcoal: #212121;
+  --brand-gradient: linear-gradient(160deg, #ff6464 0%, #e31c23 42%, #aa0000 100%);
+  --nav-bg: rgba(247, 245, 244, 0.88);
+  --glow: rgba(227, 28, 35, 0.16);
+  --glow-soft: rgba(255, 100, 100, 0.12);
 }
 
 .dark {
-  --background: #070910;
-  --foreground: #f2f4ff;
-  --muted: #9aa3c0;
-  --surface: #10131f;
-  --surface-soft: #161a2b;
-  --border: #262b40;
-  --brand-blue: #3d7bff;
-  --brand-indigo: #6b63ff;
-  --brand-violet: #b05cff;
-  --brand-gradient: linear-gradient(135deg, #3d7bff 0%, #6b63ff 48%, #b05cff 100%);
-  --nav-bg: rgba(7, 9, 16, 0.86);
-  --glow: rgba(61, 123, 255, 0.22);
+  --background: #0c0b0b;
+  --foreground: #f5f1ef;
+  --muted: #a39b98;
+  --surface: #171414;
+  --surface-soft: #221e1d;
+  --border: #332c2a;
+  --brand-red: #ff4d52;
+  --brand-red-bright: #ff7a7a;
+  --brand-red-deep: #c91016;
+  --brand-charcoal: #f5f1ef;
+  --brand-gradient: linear-gradient(160deg, #ff7a7a 0%, #ff4d52 42%, #c91016 100%);
+  --nav-bg: rgba(12, 11, 11, 0.88);
+  --glow: rgba(255, 77, 82, 0.22);
+  --glow-soft: rgba(255, 122, 122, 0.1);
 }
 
 @theme inline {
@@ -39,11 +43,12 @@
   --color-surface: var(--surface);
   --color-surface-soft: var(--surface-soft);
   --color-border: var(--border);
-  --color-brand-blue: var(--brand-blue);
-  --color-brand-indigo: var(--brand-indigo);
-  --color-brand-violet: var(--brand-violet);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-bright: var(--brand-red-bright);
+  --color-brand-red-deep: var(--brand-red-deep);
+  --color-brand-charcoal: var(--brand-charcoal);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
 }
 
 html {
@@ -53,7 +58,14 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display), sans-serif;
 }
 
 .brand-gradient-text {
@@ -69,6 +81,59 @@ body {
 
 .hero-glow {
   background:
-    radial-gradient(ellipse 70% 50% at 50% -10%, var(--glow), transparent 60%),
-    radial-gradient(ellipse 40% 35% at 85% 20%, rgba(144, 64, 240, 0.12), transparent 55%);
+    radial-gradient(ellipse 80% 55% at 50% -5%, var(--glow), transparent 62%),
+    radial-gradient(ellipse 45% 40% at 90% 18%, var(--glow-soft), transparent 58%),
+    linear-gradient(180deg, color-mix(in srgb, var(--background) 92%, #ff6464) 0%, var(--background) 48%);
+}
+
+.feature-mark {
+  background-image: var(--brand-gradient);
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+.animate-rise {
+  animation: rise-in 0.7s ease-out both;
+}
+
+.animate-rise-delay {
+  animation: rise-in 0.8s ease-out 0.12s both;
+}
+
+.animate-rise-delay-2 {
+  animation: rise-in 0.85s ease-out 0.24s both;
+}
+
+.hero-orb {
+  animation: soft-pulse 7s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-rise-delay,
+  .animate-rise-delay-2,
+  .hero-orb {
+    animation: none;
+  }
 }

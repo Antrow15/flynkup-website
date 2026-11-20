@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState, type MouseEvent } from "react";
+import BrandLogo from "./BrandLogo";
 import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
@@ -47,19 +47,14 @@ export default function Navbar() {
         <a
           href="#home"
           onClick={(e) => handleNavClick(e, "#home")}
-          className="flex items-center gap-2.5"
+          className="flex items-center"
+          aria-label="Flynk Up home"
         >
-          <Image
-            src="/flynk-up-logo.png"
-            alt="Flynk Up logo"
-            width={36}
-            height={36}
-            className="h-9 w-9"
+          <BrandLogo
+            variant="wordmark"
+            className="h-8 w-auto sm:h-9"
             priority
           />
-          <span className="text-lg font-semibold tracking-tight">
-            Flynk<span className="brand-gradient-text"> Up</span>
-          </span>
         </a>
 
         <div className="hidden items-center gap-1 md:flex">

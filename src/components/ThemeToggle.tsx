@@ -36,7 +36,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition hover:border-brand-blue/40 hover:text-brand-blue"
+      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground transition hover:border-brand-red/40 hover:text-brand-red"
     >
       {mounted && theme === "dark" ? (
         <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
